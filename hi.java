@@ -2,7 +2,7 @@
 import java.util.Random;
 //Even case
 
-public class Strassen {
+public class hi {
 
   public static int[][] strassen(int[][] X, int[][] Y) {
     // default 10, can change later
@@ -21,10 +21,6 @@ public class Strassen {
     boolean isOdd = n % 2 == 1;
     int half = n/2; // floor
     int hSize = n/2 + (isOdd ? 1 : 0); 
-    if (isOdd) {
-    //print(X);
-    //print(Y);
-      }
     int[][] ans = new int[n][n];
 
      //  0 1 2 3 4 5
@@ -40,8 +36,8 @@ public class Strassen {
     int[][] A = new int[hSize][hSize];
     int[][] E = new int[hSize][hSize];
     // changed these to < hSize
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
+    for (int i = 0; i < hSize; i++) {
+      for (int j = 0; j < hSize; j++) {
         A[i][j] = X[i][j];
         E[i][j] = Y[i][j];
        }
@@ -49,10 +45,10 @@ public class Strassen {
     int[][] B = new int[hSize][hSize];
     int[][] F = new int[hSize][hSize];
 // i to hSize.  j+half+1?
-    for (int i = 0; i < half; i++) {
+    for (int i = 0; i < hSize; i++) {
       for (int j = 0; j < half; j++) {
-        B[i][j] = X[i][j+half]; // 
-        F[i][j] = Y[i][j+half];
+        B[i][j] = X[i][j+hSize]; // 
+        F[i][j] = Y[i][j+hSize];
        }
     }
 
@@ -60,9 +56,9 @@ public class Strassen {
     int[][] G = new int[hSize][hSize];
 // j to hsize
     for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        C[i][j] = X[i+half][j];
-        G[i][j] = Y[i+half][j];
+      for (int j = 0; j < hSize; j++) {
+        C[i][j] = X[i+hSize][j];
+        G[i][j] = Y[i+hSize][j];
        }
     }
 
@@ -71,19 +67,17 @@ public class Strassen {
 
     for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        D[i][j] = X[i+half][j+half];
-        H[i][j] = Y[i+half][j+half];
+        D[i][j] = X[i+hSize][j+hSize];
+        H[i][j] = Y[i+hSize][j+hSize];
        }
     }
-    if (n == 5) {
-    System.out.println("CHECKING QUARTERS");
-    print(A);
-    print(B);
-    print(C);
-    print(D);
-   // print(E);
-   // print(F);
-      }
+    // if (n == 5) {
+    // System.out.println("CHECKING QUARTERS");
+    // print(A);
+    // print(B);
+    // print(C);
+    // print(D);
+    //   }
     // strassen subproblems
     int[][] p1 = strassen(A,sub(F, H),c); 
     int[][] p2 = strassen(add(A,B), H,c); 
@@ -94,22 +88,22 @@ public class Strassen {
     int[][] p7 = strassen(sub(C,A), add(E,F), c); 
     
    // populate top left
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
+    for (int i = 0; i < hSize; i++) {
+      for (int j = 0; j < hSize; j++) {
         ans[i][j] = -p2[i][j] + p4[i][j] + p5[i][j] + p6[i][j];
        }
     }
     // top right
-    for (int i = 0; i < half; i++) {
+    for (int i = 0; i < hSize; i++) {
       for (int j = 0; j < half; j++) {
-        ans[i][j+half] = p1[i][j] + p2[i][j];
+        ans[i][j+hSize] = p1[i][j] + p2[i][j];
        }
     }  
 
     // bottom left
     for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        ans[i+half][j] = p3[i][j] + p4[i][j];
+      for (int j = 0; j < hSize; j++) {
+        ans[i+hSize][j] = p3[i][j] + p4[i][j];
        }
     } 
 
@@ -118,7 +112,7 @@ public class Strassen {
 
     for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        ans[i+half][j+half] = p1[i][j] - p3[i][j] + p5[i][j] + p7[i][j];
+        ans[i+hSize][j+hSize] = p1[i][j] - p3[i][j] + p5[i][j] + p7[i][j];
        }
     }  
     return ans;
@@ -255,9 +249,9 @@ public class Strassen {
 
   public static void test() {
     int trials = 10;
-    int[] ns = {100}; //{11, 100, 520, 1024};
+    int[] ns = {11, 100, 520, 1024};
     
-    for(int c = 20; c < 100; c += 1) {
+    for(int c = 14; c < 100; c += 2) {
       int total_time = 0;
       for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
         double avg = 0;
@@ -272,16 +266,16 @@ public class Strassen {
           total_time += millisElapsed;
           //System.out.println("Trial: " + i + " n: " + n + " time: " + millisElapsed);
         }
-        //System.out.println("Average for " + n + " trials, c:" + c + " avg: " + avg/trials);
+        System.out.println("Average for " + n + " size, crossover:" + c + " avg: " + avg/trials);
       }
-      System.out.println("Crossover: " + c + " " + total_time/trials/ns.length);
+      System.out.println("CROSSOVER " + c + ": time in millis " + total_time/trials/ns.length);
     }    
   }
 
   public static void main(String[] args) {
     // Testing the functions
-    //test();
-    correctness();    
+    test();
+    //correctness();
   }
 
   

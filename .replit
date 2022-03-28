@@ -1,2 +1,2 @@
 language = "java10"
-run = "javac Strassen.java\njava Strassen"
+run = "javac hi.java\njava hi"

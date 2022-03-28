@@ -2,17 +2,22 @@
 import java.util.Random;
 //Even case
 
-public class Strassen {
+public class hi_optimizations {
+
+  public int[][] X;
+  public int[][] Y;
 
   public static int[][] strassen(int[][] X, int[][] Y) {
     // default 10, can change later
     return strassen(X, Y, 10);
   }
 // c is the crossover point
+  // n is the current size of the subset we are trying to apply strassens to. 
+  // X_r and X_c are the coordinates for the top left part of the box we are currently looking at in X
+  // 
   public static int[][] strassen(int[][] X, int[][] Y, int c) {
     // must be same length; assume always square
     int n = X.length;
-
     int m = Y.length;
 
     
@@ -21,95 +26,55 @@ public class Strassen {
     boolean isOdd = n % 2 == 1;
     int half = n/2; // floor
     int hSize = n/2 + (isOdd ? 1 : 0); 
-    if (isOdd) {
-    //print(X);
-    //print(Y);
-      }
+    int nSize = n + (isOdd ? 1 : 0); 
+    
     int[][] ans = new int[n][n];
 
-     //  0 1 2 3 4 5
-    //  1
-    //  2
-    //  3
-    //  4
-    //  5
-    // A B
-    // C D
-
     // creating all submatrices of X (ABCD) and Y (EFGH)
-    int[][] A = new int[hSize][hSize];
-    int[][] E = new int[hSize][hSize];
-    // changed these to < hSize
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        A[i][j] = X[i][j];
-        E[i][j] = Y[i][j];
-       }
-    }
-    int[][] B = new int[hSize][hSize];
-    int[][] F = new int[hSize][hSize];
-// i to hSize.  j+half+1?
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        B[i][j] = X[i][j+half]; // 
-        F[i][j] = Y[i][j+half];
-       }
-    }
+    Subset A = new Subset(X, 0, 0, hSize, hSize){};
+    Subset B = new Subset(X, 0, hSize, hSize, nSize){};
+    Subset C = new Subset(X, hSize, 0, nSize, hSize){};
+    Subset D = new Subset(X, hSize, hSize, nSize, nSize){};
 
-    int[][] C = new int[hSize][hSize];
-    int[][] G = new int[hSize][hSize];
-// j to hsize
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        C[i][j] = X[i+half][j];
-        G[i][j] = Y[i+half][j];
-       }
-    }
-
-    int[][] D = new int[hSize][hSize];
-    int[][] H = new int[hSize][hSize];
-
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        D[i][j] = X[i+half][j+half];
-        H[i][j] = Y[i+half][j+half];
-       }
-    }
+    Subset E = new Subset(Y, 0, 0, hSize, hSize){};
+    Subset F = new Subset(Y, 0, hSize, hSize, nSize){};
+    Subset G = new Subset(Y, hSize, 0, nSize, hSize){};
+    Subset H = new Subset(Y, hSize, hSize, nSize, nSize){};
+      
     if (n == 5) {
     System.out.println("CHECKING QUARTERS");
-    print(A);
-    print(B);
-    print(C);
-    print(D);
-   // print(E);
-   // print(F);
+    print(A.get());
+    print(B.get());
+    print(C.get());
+    print(D.get());
       }
     // strassen subproblems
-    int[][] p1 = strassen(A,sub(F, H),c); 
-    int[][] p2 = strassen(add(A,B), H,c); 
-    int[][] p3 = strassen(add(C,D), E, c); 
-    int[][] p4 = strassen(D, sub(G,E), c);
-    int[][] p5 = strassen(add(A,D), add(E,H), c);
-    int[][] p6 = strassen(sub(B,D), add(G,H), c); 
-    int[][] p7 = strassen(sub(C,A), add(E,F), c); 
+
+    int[][] p1 = strassen(A.get(),sub(F.get(), H.get()),c); 
+    int[][] p2 = strassen(add(A.get(),B.get()), H.get(),c); 
+    int[][] p3 = strassen(add(C.get(),D.get()), E.get(), c); 
+    int[][] p4 = strassen(D.get(), sub(G.get(),E.get()), c);
+    int[][] p5 = strassen(add(A.get(),D.get()), add(E.get(),H.get()), c);
+    int[][] p6 = strassen(sub(B.get(),D.get()), add(G.get(),H.get()), c); 
+    int[][] p7 = strassen(sub(C.get(),A.get()), add(E.get(),F.get()), c); 
     
    // populate top left
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
+    for (int i = 0; i < hSize; i++) {
+      for (int j = 0; j < hSize; j++) {
         ans[i][j] = -p2[i][j] + p4[i][j] + p5[i][j] + p6[i][j];
        }
     }
     // top right
-    for (int i = 0; i < half; i++) {
+    for (int i = 0; i < hSize; i++) {
       for (int j = 0; j < half; j++) {
-        ans[i][j+half] = p1[i][j] + p2[i][j];
+        ans[i][j+hSize] = p1[i][j] + p2[i][j];
        }
     }  
 
     // bottom left
     for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        ans[i+half][j] = p3[i][j] + p4[i][j];
+      for (int j = 0; j < hSize; j++) {
+        ans[i+hSize][j] = p3[i][j] + p4[i][j];
        }
     } 
 
@@ -118,7 +83,7 @@ public class Strassen {
 
     for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        ans[i+half][j+half] = p1[i][j] - p3[i][j] + p5[i][j] + p7[i][j];
+        ans[i+hSize][j+hSize] = p1[i][j] - p3[i][j] + p5[i][j] + p7[i][j];
        }
     }  
     return ans;
@@ -205,8 +170,9 @@ public class Strassen {
       {1,5,},
       {2,1,},
     };
-
-        System.out.println("Strassen's 2x2");
+    print(x);
+    print(y);
+    System.out.println("Strassen's 2x2");
     print(strassen(x,y,1));
     System.out.println("Regular MM 2x2");
     print(standardMM(x,y));
@@ -227,6 +193,8 @@ public class Strassen {
 // 13, 21, 15, 11
 // 11, 15, 9, 13
 // 11, 21, 12, 7
+    print(evenA);
+    print(evenB);
     System.out.println("Strassen's even");
     print(strassen(evenA,evenB,1));
     System.out.println("Regular MM even");
@@ -247,6 +215,8 @@ public class Strassen {
       {2,1,0,5,3},
       {2,6,1,0,3}
     };
+    print(oddA);
+    print(oddB);
     System.out.println("Strassen's odd");
     print(strassen(oddA,oddB,1));
     System.out.println("Regular MM odd");
@@ -255,9 +225,9 @@ public class Strassen {
 
   public static void test() {
     int trials = 10;
-    int[] ns = {100}; //{11, 100, 520, 1024};
+    int[] ns = {16, 100, 520, 1024};
     
-    for(int c = 20; c < 100; c += 1) {
+    for(int c = 10; c < 100; c += 2) {
       int total_time = 0;
       for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
         double avg = 0;
@@ -281,7 +251,7 @@ public class Strassen {
   public static void main(String[] args) {
     // Testing the functions
     //test();
-    correctness();    
+    correctness();
   }
 
   

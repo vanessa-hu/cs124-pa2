@@ -25,7 +25,7 @@ public class Triangle {
         }
       }
       
-      int[][] a3 = strassen(strassen(A,A),A);
+      int[][] a3 = hi.strassen(hi.strassen(A,A),A);
         System.out.println("TRIAL W PROBABILITY: " + prob);
               System.out.println("ours: " + prob);
       System.out.println("expected: " + 178433024 * Math.pow(prob, 3));
