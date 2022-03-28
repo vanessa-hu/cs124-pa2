@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 
 
-public class strassen {
+public class strassenFinal {
   // this will be the final one
 
   public static void main(String[] args) throws IOException {
