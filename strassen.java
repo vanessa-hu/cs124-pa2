@@ -20,13 +20,9 @@ public class strassen {
             // Parse the string argument into an integer value.
             dim = Integer.parseInt(args[1]);
        System.out.println("dim " + dim);
-        }
-        catch (NumberFormatException nfe) {
-            System.out.println("The first argument must be an integer.");
-            System.exit(1);
-        }
-       
-        double[][] A = new double[dim][dim];
+
+
+                  double[][] A = new double[dim][dim];
        double[][] B = new double[dim][dim];
        // reading in new file
           FileReader fileReader = new FileReader(args[2]);
@@ -36,6 +32,13 @@ public class strassen {
           while( (line = bufferReader.readLine()) != null){
             // populate them
           }
+        }
+        catch (NumberFormatException nfe) {
+            System.out.println("The first argument must be an integer.");
+            System.exit(1);
+        }
+       
+
 
         
       // a list of the values of the diagonal entries c0;0; c1;1; : : : ; cd􀀀1;d􀀀1, one per line, including a trailing newline.
@@ -49,4 +52,5 @@ public class strassen {
 	 //  String skills = sc.next();
 	 //  System.out.println("your skills are " + skills);
   // }
+}
 }
