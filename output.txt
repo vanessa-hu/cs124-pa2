@@ -1,0 +1,161 @@
+Trial: 0 n: 11 time: 2
+Trial: 1 n: 11 time: 1
+Trial: 2 n: 11 time: 1
+Trial: 3 n: 11 time: 0
+Trial: 4 n: 11 time: 0
+Trial: 5 n: 11 time: 0
+Trial: 6 n: 11 time: 0
+Trial: 7 n: 11 time: 0
+Trial: 8 n: 11 time: 0
+Trial: 9 n: 11 time: 0
+Average for 11 :0.4
+Trial: 0 n: 100 time: 314
+Trial: 1 n: 100 time: 193
+Trial: 2 n: 100 time: 191
+Trial: 3 n: 100 time: 108
+Trial: 4 n: 100 time: 194
+Trial: 5 n: 100 time: 195
+Trial: 6 n: 100 time: 102
+Trial: 7 n: 100 time: 200
+Trial: 8 n: 100 time: 108
+Trial: 9 n: 100 time: 194
+Average for 100 :179.9
+Trial: 0 n: 520 time: 7506
+Trial: 1 n: 520 time: 4384
+Trial: 2 n: 520 time: 2908
+Trial: 3 n: 520 time: 2497
+Trial: 4 n: 520 time: 3099
+Trial: 5 n: 520 time: 3189
+Trial: 6 n: 520 time: 3697
+Trial: 7 n: 520 time: 2639
+Trial: 8 n: 520 time: 3411
+Trial: 9 n: 520 time: 2990
+Average for 520 :3632.0
+Trial: 0 n: 1024 time: 17245
+Trial: 1 n: 1024 time: 16049
+Trial: 2 n: 1024 time: 17293
+Trial: 3 n: 1024 time: 17393
+Trial: 4 n: 1024 time: 16374
+Trial: 5 n: 1024 time: 16850
+Trial: 6 n: 1024 time: 16668
+Trial: 7 n: 1024 time: 15985
+Trial: 8 n: 1024 time: 17016
+Trial: 9 n: 1024 time: 17714
+Average for 1024 :16858.7
+Trial: 0 n: 11 time: 7
+Trial: 1 n: 11 time: 1
+Trial: 2 n: 11 time: 1
+Trial: 3 n: 11 time: 1
+Trial: 4 n: 11 time: 0
+Trial: 5 n: 11 time: 0
+Trial: 6 n: 11 time: 0
+Trial: 7 n: 11 time: 0
+Trial: 8 n: 11 time: 0
+Trial: 9 n: 11 time: 0
+Average for 11 :1.0
+Trial: 0 n: 112 time: 188
+Trial: 1 n: 112 time: 174
+Trial: 2 n: 112 time: 136
+Trial: 3 n: 112 time: 268
+Trial: 4 n: 112 time: 293
+Trial: 5 n: 112 time: 280
+Trial: 6 n: 112 time: 103
+Trial: 7 n: 112 time: 195
+Trial: 8 n: 112 time: 184
+Trial: 9 n: 112 time: 202
+Average for 112 :202.3
+Trial: 0 n: 213 time: 1093
+Trial: 1 n: 213 time: 643
+Trial: 2 n: 213 time: 575
+Trial: 3 n: 213 time: 321
+Trial: 4 n: 213 time: 274
+Trial: 5 n: 213 time: 308
+Trial: 6 n: 213 time: 482
+Trial: 7 n: 213 time: 593
+Trial: 8 n: 213 time: 500
+Trial: 9 n: 213 time: 213
+Average for 213 :500.2
+Trial: 0 n: 314 time: 401
+Trial: 1 n: 314 time: 332
+Trial: 2 n: 314 time: 342
+Trial: 3 n: 314 time: 391
+Trial: 4 n: 314 time: 866
+Trial: 5 n: 314 time: 910
+Trial: 6 n: 314 time: 337
+Trial: 7 n: 314 time: 397
+Trial: 8 n: 314 time: 558
+Trial: 9 n: 314 time: 413
+Average for 314 :494.7
+Trial: 0 n: 415 time: 2588
+Trial: 1 n: 415 time: 1990
+Trial: 2 n: 415 time: 2350
+ javac Strassen.java
+ java Strassen.java
+error: class found on application class path: Strassen
+ java Strassen
+Trial: 0 n: 11 time: 28
+Trial: 1 n: 11 time: 20
+Trial: 2 n: 11 time: 20
+Trial: 3 n: 11 time: 0
+Trial: 4 n: 11 time: 8
+Trial: 5 n: 11 time: 1
+Trial: 6 n: 11 time: 0
+Trial: 7 n: 11 time: 10
+Trial: 8 n: 11 time: 4
+Trial: 9 n: 11 time: 7
+Average for 11 :9.8
+Trial: 0 n: 212 time: 1449
+Trial: 1 n: 212 time: 1058
+Trial: 2 n: 212 time: 2016
+Trial: 3 n: 212 time: 689
+Trial: 4 n: 212 time: 980
+Trial: 5 n: 212 time: 701
+Trial: 6 n: 212 time: 1107
+Trial: 7 n: 212 time: 704
+Trial: 8 n: 212 time: 791
+Trial: 9 n: 212 time: 523
+Average for 212 :1001.8
+Trial: 0 n: 413 time: 3975
+Trial: 1 n: 413 time: 4181
+Trial: 2 n: 413 time: 3318
+Trial: 3 n: 413 time: 2987
+Trial: 4 n: 413 time: 3594
+Trial: 5 n: 413 time: 2918
+Trial: 6 n: 413 time: 2906
+Trial: 7 n: 413 time: 2672
+Trial: 8 n: 413 time: 2902
+Trial: 9 n: 413 time: 2700
+Average for 413 :3215.3
+Trial: 0 n: 614 time: 4988
+Trial: 1 n: 614 time: 5422
+Trial: 2 n: 614 time: 5092
+Trial: 3 n: 614 time: 5188
+Trial: 4 n: 614 time: 5210
+Trial: 5 n: 614 time: 5385
+Trial: 6 n: 614 time: 5110
+Trial: 7 n: 614 time: 4606
+Trial: 8 n: 614 time: 4893
+Trial: 9 n: 614 time: 4499
+Average for 614 :5039.3
+Trial: 0 n: 815 time: 12294
+Trial: 1 n: 815 time: 11343
+Trial: 2 n: 815 time: 12486
+Trial: 3 n: 815 time: 11373
+Trial: 4 n: 815 time: 12791
+Trial: 5 n: 815 time: 10620
+Trial: 6 n: 815 time: 10989
+Trial: 7 n: 815 time: 12404
+Trial: 8 n: 815 time: 12304
+Trial: 9 n: 815 time: 11703
+Average for 815 :11830.7
+Trial: 0 n: 1016 time: 14914
+Trial: 1 n: 1016 time: 13993
+Trial: 2 n: 1016 time: 14469
+Trial: 3 n: 1016 time: 15317
+Trial: 4 n: 1016 time: 23689
+Trial: 5 n: 1016 time: 14588
+Trial: 6 n: 1016 time: 12966
+Trial: 7 n: 1016 time: 14235
+Trial: 8 n: 1016 time: 13236
+Trial: 9 n: 1016 time: 14871
+Average for 1016 :15227.8

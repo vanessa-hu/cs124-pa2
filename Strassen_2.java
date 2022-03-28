@@ -2,7 +2,7 @@
 import java.util.Random;
 //Even case
 
-public class Strassen {
+public class Strassen_2 {
 
   public static int[][] strassen(int[][] X, int[][] Y) {
     return strassen(X, Y, 10);
@@ -19,23 +19,16 @@ public class Strassen {
     if (n <= c) return standardMM(X,Y);
     boolean isOdd = n % 2 == 1;
     int half = n/2; // floor
-    int hSize = n/2 + (isOdd ? 1 : 0); 
+    int hSize = n/2 + (isOdd ? 1 : 0); //
+    System.out.println("HSIZE: " + hSize);
     int[][] ans = new int[n][n];
 
-     //  0 1 2 3 4 5
-    //  1
-    //  2
-    //  3
-    //  4
-    //  5
-    // A B
-    // C D
-
+    // This is a potential optimization, but adding an extra set of 0s
     // creating all submatrices of X (ABCD) and Y (EFGH)
     int[][] A = new int[hSize][hSize];
     int[][] E = new int[hSize][hSize];
-    for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
+    for (int i = 0; i < hSize; i++) {
+      for (int j = 0; j < hSize; j++) {
         A[i][j] = X[i][j];
         E[i][j] = Y[i][j];
        }
@@ -43,7 +36,7 @@ public class Strassen {
     int[][] B = new int[hSize][hSize];
     int[][] F = new int[hSize][hSize];
 
-    for (int i = 0; i < half; i++) {
+    for (int i = 0; i < hSize; i++) {
       for (int j = 0; j < half; j++) {
         B[i][j] = X[i][j+half]; // 
         F[i][j] = Y[i][j+half];
@@ -54,9 +47,9 @@ public class Strassen {
     int[][] G = new int[hSize][hSize];
 
     for (int i = 0; i < half; i++) {
-      for (int j = 0; j < half; j++) {
-        C[i][j] = X[i+half][j];
-        G[i][j] = Y[i+half][j];
+      for (int j = 0; j < hSize; j++) {
+        C[i][j] = X[i+hSize][j];
+        G[i][j] = Y[i+hSize][j];
        }
     }
 
@@ -69,14 +62,29 @@ public class Strassen {
         H[i][j] = Y[i+half][j+half];
        }
     }
+
+    System.out.println("A: " + print(A) + "B: " + print(B));
+    System.out.println("C: " + print(C) + "D: " + print(D));
+
+    System.out.println("E: " + print(E) + "F: " + print(F));
+    System.out.println("G: " + print(G) + "H: " + print(H));
+    
     // strassen subproblems
-    int[][] p1 = strassen(A,sub(F, H),c); 
-    int[][] p2 = strassen(add(A,B), H,c); 
-    int[][] p3 = strassen(add(C,D), E, c); 
-    int[][] p4 = strassen(D, sub(G,E), c);
-    int[][] p5 = strassen(add(A,D), add(E,H), c);
-    int[][] p6 = strassen(sub(B,D), add(G,H), c); 
-    int[][] p7 = strassen(sub(C,A), add(E,F), c); 
+    int[][] p1 = strassen(A,sub(F, H)); 
+    int[][] p2 = strassen(add(A,B), H); 
+    int[][] p3 = strassen(add(C,D), E); 
+    int[][] p4 = strassen(D, sub(G,E));
+    int[][] p5 = strassen(add(A,D), add(E,H));
+    int[][] p6 = strassen(sub(B,D), add(G,H)); 
+    int[][] p7 = strassen(sub(C,A), add(E,F));
+
+    System.out.println("p1" + print(p1));
+    System.out.println("p2" + print(p2));
+    System.out.println("p3" + print(p3));
+    System.out.println("p4" + print(p4));
+    System.out.println("p5" + print(p5));
+    System.out.println("p6" + print(p6));
+    System.out.println("p7" + print(p7));
     
    // populate top left
     for (int i = 0; i < half; i++) {
@@ -158,14 +166,13 @@ public class Strassen {
   public static String print(int[][] A) {
     String toReturn = "[";
     for (int i = 0; i < A.length; i++) {
-      for (int j = 0; j < A.length - 1; j++) {
+      for (int j = 0; j < A[0].length - 1; j++) {
         toReturn += A[i][j];
         toReturn += ", ";
       }
-      toReturn += A[i][A.length - 1];
+      toReturn += A[i][A[0].length - 1];
       toReturn += "\n";
     }
-    System.out.println(toReturn);
     return toReturn;
   }
 
@@ -181,44 +188,47 @@ public class Strassen {
     return toReturn;
   }
 
-  public static void correctness() {
-    int[][] x = new int[][] {
-      {1,3},
-      {2,3},
+  public static void test() {
+    int trials = 10;
+    int[] ns = {10, 100, 520, 1024};
+    for(int n : ns) {
+      double avg = 0;
+      for(int i = 0; i < trials; i++){
+        long startTime = System.nanoTime();
+        
+        strassen(generate(n), generate(n));
+        
+        long endTime = System.nanoTime(); 
+        long millisElapsed = (endTime - startTime) / 1000000;
+        avg += millisElapsed;
+        System.out.println("Trial: " + i + " n: " + n + " time: " + millisElapsed);
+      }
+      System.out.println("Average for " + n + " :" + avg/trials);
+    }    
+  }
+
+  public static void main(String[] args) {
+    // Testing the functions
+    //test();
+
+    /*    int[][] x = new int[][] {
+      {1,3,5},
+      {2,3,5},
+      {2,3,5},
     };
             int[][] y = new int[][] {
-      {1,5,},
-      {2,1,},
+      {1,5,5},
+      {2,1,5},
+      {2,3,5},
     };
 
-        System.out.println("Strassen's 2x2");
-    print(strassen(x,y,1));
+    System.out.println("Strassen's 2x2");
+    System.out.println(print(x) + print(y));
+    System.out.println(print(strassen(x,y,1)));
     System.out.println("Regular MM 2x2");
-    print(standardMM(x,y));
-    int[][] evenA = new int[][] {
-      {1,3,5,1},
-      {2,3,1,2},
-      {1,0,2,4},
-      {1,3,2,1},
-    };
-        int[][] evenB = new int[][] {
-      {1,3,5,1},
-      {2,3,1,1},
-      {1,4,2,0},
-      {2,1,0,3}
-    };
-    // should be below; strassen's is wrong currently
-//     [14, 33, 18, 7
-// 13, 21, 15, 11
-// 11, 15, 9, 13
-// 11, 21, 12, 7
-    System.out.println("Strassen's even");
-    print(strassen(evenA,evenB,1));
-    System.out.println("Regular MM even");
-    print(standardMM(evenA,evenB));
-
-
-        int[][] oddA = new int[][] {
+    System.out.println(print(standardMM(x,y)));*/
+    
+    int[][] oddA = new int[][] {
       {1,3,5,1,2},
       {2,3,1,2,3},
       {1,4,2,4,1},
@@ -233,41 +243,8 @@ public class Strassen {
       {2,6,1,0,3}
     };
     System.out.println("Strassen's odd");
-    print(strassen(oddA,oddB,1));
+    System.out.println(print(strassen(oddA,oddB,1)));
     System.out.println("Regular MM odd");
-    print(standardMM(oddA,oddB));
-  }
-
-  public static void test() {
-    int trials = 10;
-    int[] ns = {100}; //{11, 100, 520, 1024};
-    
-    for(int c = 20; c < 100; c += 1) {
-      int total_time = 0;
-      for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
-        double avg = 0;
-        for(int i = 0; i < trials; i++){
-          long startTime = System.nanoTime();
-          
-          strassen(generate(n), generate(n), c);
-          
-          long endTime = System.nanoTime(); 
-          long millisElapsed = (endTime - startTime) / 1000000;
-          avg += millisElapsed;
-          total_time += millisElapsed;
-          //System.out.println("Trial: " + i + " n: " + n + " time: " + millisElapsed);
-        }
-        //System.out.println("Average for " + n + " trials, c:" + c + " avg: " + avg/trials);
-      }
-      System.out.println("Crossover: " + c + " " + total_time/trials/ns.length);
-    }    
-  }
-
-  public static void main(String[] args) {
-    // Testing the functions
-    test();
-    //correctness();    
-  }
-
-  
+    System.out.println(print(standardMM(oddA,oddB)));
+  }  
 }
