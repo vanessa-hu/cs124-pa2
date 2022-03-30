@@ -2,7 +2,7 @@
 import java.util.Random;
 //Even case
 
-public class hello {
+public class Strassen {
 
   public static int[][] strassen(int[][] X, int[][] Y) {
     // default 10, can change later
@@ -21,6 +21,10 @@ public class hello {
     boolean isOdd = n % 2 == 1;
     int half = n/2; // floor
     int hSize = n/2 + (isOdd ? 1 : 0); 
+    if (isOdd) {
+    //print(X);
+    //print(Y);
+      }
     int[][] ans = new int[n][n];
 
      //  0 1 2 3 4 5
@@ -36,8 +40,8 @@ public class hello {
     int[][] A = new int[hSize][hSize];
     int[][] E = new int[hSize][hSize];
     // changed these to < hSize
-    for (int i = 0; i < hSize; i++) {
-      for (int j = 0; j < hSize; j++) {
+    for (int i = 0; i < half; i++) {
+      for (int j = 0; j < half; j++) {
         A[i][j] = X[i][j];
         E[i][j] = Y[i][j];
        }
@@ -45,10 +49,10 @@ public class hello {
     int[][] B = new int[hSize][hSize];
     int[][] F = new int[hSize][hSize];
 // i to hSize.  j+half+1?
-    for (int i = 0; i < hSize; i++) {
+    for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        B[i][j] = X[i][j+hSize]; // 
-        F[i][j] = Y[i][j+hSize];
+        B[i][j] = X[i][j+half]; // 
+        F[i][j] = Y[i][j+half];
        }
     }
 
@@ -56,9 +60,9 @@ public class hello {
     int[][] G = new int[hSize][hSize];
 // j to hsize
     for (int i = 0; i < half; i++) {
-      for (int j = 0; j < hSize; j++) {
-        C[i][j] = X[i+hSize][j];
-        G[i][j] = Y[i+hSize][j];
+      for (int j = 0; j < half; j++) {
+        C[i][j] = X[i+half][j];
+        G[i][j] = Y[i+half][j];
        }
     }
 
@@ -67,17 +71,19 @@ public class hello {
 
     for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        D[i][j] = X[i+hSize][j+hSize];
-        H[i][j] = Y[i+hSize][j+hSize];
+        D[i][j] = X[i+half][j+half];
+        H[i][j] = Y[i+half][j+half];
        }
     }
-    // if (n == 5) {
-    // System.out.println("CHECKING QUARTERS");
-    // print(A);
-    // print(B);
-    // print(C);
-    // print(D);
-    //   }
+    if (n == 5) {
+    System.out.println("CHECKING QUARTERS");
+    print(A);
+    print(B);
+    print(C);
+    print(D);
+   // print(E);
+   // print(F);
+      }
     // strassen subproblems
     int[][] p1 = strassen(A,sub(F, H),c); 
     int[][] p2 = strassen(add(A,B), H,c); 
@@ -88,22 +94,22 @@ public class hello {
     int[][] p7 = strassen(sub(C,A), add(E,F), c); 
     
    // populate top left
-    for (int i = 0; i < hSize; i++) {
-      for (int j = 0; j < hSize; j++) {
+    for (int i = 0; i < half; i++) {
+      for (int j = 0; j < half; j++) {
         ans[i][j] = -p2[i][j] + p4[i][j] + p5[i][j] + p6[i][j];
        }
     }
     // top right
-    for (int i = 0; i < hSize; i++) {
+    for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        ans[i][j+hSize] = p1[i][j] + p2[i][j];
+        ans[i][j+half] = p1[i][j] + p2[i][j];
        }
     }  
 
     // bottom left
     for (int i = 0; i < half; i++) {
-      for (int j = 0; j < hSize; j++) {
-        ans[i+hSize][j] = p3[i][j] + p4[i][j];
+      for (int j = 0; j < half; j++) {
+        ans[i+half][j] = p3[i][j] + p4[i][j];
        }
     } 
 
@@ -112,7 +118,7 @@ public class hello {
 
     for (int i = 0; i < half; i++) {
       for (int j = 0; j < half; j++) {
-        ans[i+hSize][j+hSize] = p1[i][j] - p3[i][j] + p5[i][j] + p7[i][j];
+        ans[i+half][j+half] = p1[i][j] - p3[i][j] + p5[i][j] + p7[i][j];
        }
     }  
     return ans;
@@ -135,20 +141,6 @@ public class hello {
   }
 
   public static int[][] add(int[][] A, int[][] B) {
-    // assume same dimensions
-    // modifying A?
-    int r = A.length;
-    int c = A[0].length;
-    int[][] C = new int[r][c];
-    for (int i = 0; i < r; i++) {
-      for (int j = 0; j < c; j++) {
-        C[i][j] = A[i][j] + B[i][j];
-      }
-    }
-
-    return C;
-  }
-    public static int[][] add(int[][] A, int[][] B) {
     // assume same dimensions
     // modifying A?
     int r = A.length;

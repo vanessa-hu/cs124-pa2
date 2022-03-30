@@ -7,6 +7,9 @@ public class hi_optimizations {
   public int[][] X;
   public int[][] Y;
 
+  int curr_size;
+  int[][] p1 = 
+
   public static int[][] strassen(int[][] X, int[][] Y) {
     // default 10, can change later
     return strassen(X, Y, 10);

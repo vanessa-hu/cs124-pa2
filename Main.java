@@ -2,7 +2,7 @@
 import java.util.Random;
 //Even case
 
-public class hi {
+public class Main {
 
   public static int[][] strassen(int[][] X, int[][] Y) {
     // default 10, can change later
@@ -216,10 +216,10 @@ public class hi {
       {1,4,2,0},
       {2,1,0,3}
     };
-    // should be below; strassen's is wrong currently
+    // should be below;
 //     [14, 33, 18, 7
-// 13, 21, 15, 11
-// 11, 15, 9, 13
+    // 13, 21, 15, 11
+    // 11, 15, 9, 13
 // 11, 21, 12, 7
     System.out.println("Strassen's even");
     print(strassen(evenA,evenB,1));
