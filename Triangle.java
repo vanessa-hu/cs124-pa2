@@ -12,7 +12,6 @@ public class Triangle {
     int n = 1024;
     // generate graph
     for (double prob : p) {
-      //System.out.println("PROBABILITY: " + p);
       double numTriangles = 0;
      for (int i = 0; i < trials; i++) {
       int[][] A = new int[n][n];
@@ -26,7 +25,6 @@ public class Triangle {
           }
         }
       }
-      //System.out.print("graph generated " + i);
       int[][] a3 = Main_Opt2.finalStrassen(Main_Opt2.finalStrassen(A,A),A);
 
       for (int j = 0; j < n; j++) {
@@ -46,23 +44,7 @@ public class Triangle {
       
     }
 
-    
-    
+  
   }
-
-//   public static int nCr(int n, int r)
-// {
-//     return fact(n) / (fact(r) *
-//                   fact(n - r));
-// }
- 
-// // Returns factorial of n
-// public static int fact(int n)
-// {
-//     int res = 1;
-//     for (int i = 2; i <= n; i++)
-//         res = res * i;
-//     return res;
-// }
   
 }

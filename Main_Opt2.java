@@ -311,7 +311,7 @@ public class Main_Opt2 {
     int trials = 10;
     int[] ns = {128, 256, 512, 1024};
     
-    for(int c = 70; c < 120; c += 5) {
+    for(int c = 15; c < 200; c += 5) {
       int total_time = 0;
       for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
         double avg = 0;
