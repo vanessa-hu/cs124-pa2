@@ -1,2 +1,2 @@
 language = "java10"
-run = "javac Main_Opt2.java\njava Main_Opt2"
+run = "javac Triangle.java\njava Triangle"

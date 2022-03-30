@@ -48,12 +48,7 @@ public class Strassen {
             else c++;
             }
           bufferReader.close();
-    //System.out.println("read in:");
-    //Main_Opt2.print(A);
-    //Main_Opt2.print(B);
     int[][] ans = Main_Opt2.finalStrassen(A,B);
-    //System.out.println("final ans: ");
-    //Main_Opt2.print(ans);
     for (int i = 0; i < dim; i++) {
       System.out.println(ans[i][i]);
     }
