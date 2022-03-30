@@ -3,21 +3,21 @@
     "Strassen.java": [
       {
         "id": "9e3f2619-178c-45e5-beab-80a5251e9cd1",
-        "line": 89,
-        "version": 4204,
-        "index": 2076
+        "line": 1,
+        "version": 4304,
+        "index": 0
       },
       {
         "id": "6fe69e12-ea15-43df-a362-835aea642fb5",
-        "line": 93,
-        "version": 4204,
-        "index": 2256
+        "line": 1,
+        "version": 4304,
+        "index": 0
       },
       {
         "id": "3dfe4cbe-e1af-4cef-9119-fec1758b5c32",
-        "line": 97,
-        "version": 4204,
-        "index": 2387
+        "line": 1,
+        "version": 4304,
+        "index": 0
       }
     ]
   }

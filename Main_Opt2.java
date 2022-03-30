@@ -309,16 +309,15 @@ public class Main_Opt2 {
   
   public static void test() {
     int trials = 10;
-    int[] ns = {11, 100, 520, 1024};
+    int[] ns = {128, 256, 512, 1024};
     
-    for(int c = 14; c < 100; c += 2) {
+    for(int c = 70; c < 120; c += 5) {
       int total_time = 0;
       for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
         double avg = 0;
         for(int i = 0; i < trials; i++){
           long startTime = System.nanoTime();
-          int[][] goal = new int[n][n];
-          strassen(generate(n), generate(n), c, goal);
+          finalStrassen(generate(n), generate(n), c);
           
           long endTime = System.nanoTime(); 
           long millisElapsed = (endTime - startTime) / 1000000;

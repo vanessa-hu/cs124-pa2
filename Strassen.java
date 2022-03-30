@@ -1,22 +1,17 @@
 import java.io.IOException;
-//import java.util.Scanner;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
 
 public class Strassen {
-  // this will be the final one
 
   public static void main(String[] args) throws IOException {
     // flag dimension inputFile
 
      if (args.length == 3) {
-  
-        System.out.println("flag " + args[0]);
        int dim;
         try {
             dim = Integer.parseInt(args[1]);
-       System.out.println("dim " + dim);
                   int[][] A = new int[dim][dim];
        int[][] B = new int[dim][dim];
        // reading in new file
@@ -28,7 +23,7 @@ public class Strassen {
           int c = 0;
           String line = "";
 
-          // matrix A.
+          // matrix A
           while(count < entries){
             line = bufferReader.readLine();
             int val = Integer.parseInt(line);
@@ -53,13 +48,13 @@ public class Strassen {
             else c++;
             }
           bufferReader.close();
-    System.out.println("read in:");
-    Main_Opt2.print(A);
-    Main_Opt2.print(B);
+    //System.out.println("read in:");
+    //Main_Opt2.print(A);
+    //Main_Opt2.print(B);
     int[][] ans = Main_Opt2.finalStrassen(A,B);
-          System.out.println("final ans: ");
-        Main_Opt2.print(ans);
-      for (int i = 0; i < dim; i++) {
+    //System.out.println("final ans: ");
+    //Main_Opt2.print(ans);
+    for (int i = 0; i < dim; i++) {
       System.out.println(ans[i][i]);
     }
 
