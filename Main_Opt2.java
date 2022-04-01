@@ -29,9 +29,6 @@ public class Main_Opt2 {
 // c is the crossover point
   public static void strassen(int[][] X, int[][] Y, int c, int[][] Goal) {
     // must be same length; assume always square
-
-
-
     int n = X.length;
     int m = Y.length;
 
@@ -50,8 +47,7 @@ public class Main_Opt2 {
     int[][] subAns = new int[half][half];
 
     //populate right with subtract
-    //sub(F, H, right); 
-    
+    //sub(F, H, right);    
     for (int i = 0; i < hSize; i++) {
       for (int j = 0; j < hSize; j++) {
         //populate with F - H
