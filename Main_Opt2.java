@@ -210,7 +210,8 @@ public class Main_Opt2 {
   }
 
   public static int[][] generate(int n) {
-    int[] intArray = {0, 1, -1, 2, 3, 4, 5};
+    //int[] intArray = {0, 1, -1, 2, 3, 4, 5};
+    int[] intArray = {0, 1, -1};
     int[][] toReturn = new int[n][n];
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
@@ -333,8 +334,59 @@ public class Main_Opt2 {
 
   public static void main(String[] args) {
     // Testing the functions
-    test();
+   // test();
+    testOdd();
+    testEven();
     //correctness();
+  }
+
+  public static void testEven() {
+    int trials = 3;
+    int[] ns = {128, 256, 512, 1024};
+    
+    for(int c = 16; c < 150; c += 4) {
+      int total_time = 0;
+      for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
+        double avg = 0;
+        for(int i = 0; i < trials; i++){
+          long startTime = System.nanoTime();
+          finalStrassen(generate(n), generate(n), c);
+          
+          long endTime = System.nanoTime(); 
+          long millisElapsed = (endTime - startTime) / 1000000;
+          avg += millisElapsed;
+          total_time += millisElapsed;
+          //System.out.println("Trial: " + i + " n: " + n + " time: " + millisElapsed);
+        }
+        System.out.println("Average for " + n + " size, crossover:" + c + " avg: " + avg/trials);
+      }
+      System.out.println("CROSSOVER " + c + ": time in millis " + total_time/trials/ns.length);
+    }    
+  }
+
+  public static void testOdd() {
+    int trials = 5;
+    //int[] ns = {121, 249, 505, 1017};
+    int[] ns = {4000, 2000, 1000};
+    
+    for(int c = 16; c < 256; c *= 2) {
+      int total_time = 0;
+      for(int n : ns) {//(int n = 11; n < 1200; n += 201) {
+        double avg = 0;
+        for(int i = 0; i < trials; i++){
+          long startTime = System.nanoTime();
+          finalStrassen(generate(n), generate(n), c);
+          
+          long endTime = System.nanoTime(); 
+          long millisElapsed = (endTime - startTime) / 1000000;
+          avg += millisElapsed;
+          total_time += millisElapsed;
+          //System.out.println("Trial: " + i + " n: " + n + " time: " + millisElapsed);
+        }
+        System.out.println("Average for " + n + " size, crossover:" + c + " avg: " + avg/trials);
+      }
+      System.out.println("CROSSOVER " + c + ": time in millis " + total_time/trials/ns.length);
+    }    
   }
 
   

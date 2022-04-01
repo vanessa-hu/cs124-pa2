@@ -1,0 +1,185 @@
+Average for 128 size, crossover:15 avg: 298.7
+Average for 256 size, crossover:15 avg: 1011.9
+Average for 512 size, crossover:15 avg: 2558.7
+Average for 1024 size, crossover:15 avg: 10598.6
+CROSSOVER 15: time in millis 3616
+Average for 128 size, crossover:20 avg: 23.5
+Average for 256 size, crossover:20 avg: 163.7
+Average for 512 size, crossover:20 avg: 754.0
+Average for 1024 size, crossover:20 avg: 5453.4
+CROSSOVER 20: time in millis 1598
+Average for 128 size, crossover:25 avg: 16.4
+Average for 256 size, crossover:25 avg: 99.6
+Average for 512 size, crossover:25 avg: 829.0
+Average for 1024 size, crossover:25 avg: 5451.6
+CROSSOVER 25: time in millis 1599
+Average for 128 size, crossover:30 avg: 13.3
+Average for 256 size, crossover:30 avg: 164.1
+Average for 512 size, crossover:30 avg: 887.6
+Average for 1024 size, crossover:30 avg: 5737.8
+CROSSOVER 30: time in millis 1700
+Average for 128 size, crossover:35 avg: 19.0
+Average for 256 size, crossover:35 avg: 91.0
+Average for 512 size, crossover:35 avg: 879.0
+Average for 1024 size, crossover:35 avg: 5288.1
+CROSSOVER 35: time in millis 1569
+Average for 128 size, crossover:40 avg: 29.5
+Average for 256 size, crossover:40 avg: 144.2
+Average for 512 size, crossover:40 avg: 774.7
+Average for 1024 size, crossover:40 avg: 5290.9
+CROSSOVER 40: time in millis 1559
+Average for 128 size, crossover:45 avg: 29.5
+Average for 256 size, crossover:45 avg: 138.2
+Average for 512 size, crossover:45 avg: 762.3
+Average for 1024 size, crossover:45 avg: 5480.2
+CROSSOVER 45: time in millis 1602
+Average for 128 size, crossover:50 avg: 36.9
+Average for 256 size, crossover:50 avg: 143.3
+Average for 512 size, crossover:50 avg: 869.1
+Average for 1024 size, crossover:50 avg: 5594.1
+CROSSOVER 50: time in millis 1660
+Average for 128 size, crossover:55 avg: 11.7
+Average for 256 size, crossover:55 avg: 99.1
+Average for 512 size, crossover:55 avg: 863.6
+Average for 1024 size, crossover:55 avg: 5456.3
+CROSSOVER 55: time in millis 1607
+Average for 128 size, crossover:60 avg: 18.7
+Average for 256 size, crossover:60 avg: 108.4
+Average for 512 size, crossover:60 avg: 837.8
+Average for 1024 size, crossover:60 avg: 5377.1
+CROSSOVER 60: time in millis 1585
+Average for 128 size, crossover:65 avg: 18.0
+Average for 256 size, crossover:65 avg: 103.2
+Average for 512 size, crossover:65 avg: 963.3
+Average for 1024 size, crossover:65 avg: 5826.9
+CROSSOVER 65: time in millis 1727
+Average for 128 size, crossover:70 avg: 12.0
+Average for 256 size, crossover:70 avg: 105.7
+Average for 512 size, crossover:70 avg: 899.3
+Average for 1024 size, crossover:70 avg: 5869.8
+CROSSOVER 70: time in millis 1721
+Average for 128 size, crossover:75 avg: 31.2
+Average for 256 size, crossover:75 avg: 127.5
+Average for 512 size, crossover:75 avg: 859.5
+Average for 1024 size, crossover:75 avg: 6101.3
+CROSSOVER 75: time in millis 1779
+Average for 128 size, crossover:80 avg: 37.2
+Average for 256 size, crossover:80 avg: 153.1
+Average for 512 size, crossover:80 avg: 839.4
+Average for 1024 size, crossover:80 avg: 5887.8
+CROSSOVER 80: time in millis 1729
+Average for 128 size, crossover:85 avg: 18.7
+Average for 256 size, crossover:85 avg: 120.2
+Average for 512 size, crossover:85 avg: 997.7
+Average for 1024 size, crossover:85 avg: 5940.2
+CROSSOVER 85: time in millis 1769
+Average for 128 size, crossover:90 avg: 29.6
+Average for 256 size, crossover:90 avg: 139.2
+Average for 512 size, crossover:90 avg: 840.7
+Average for 1024 size, crossover:90 avg: 6367.0
+CROSSOVER 90: time in millis 1844
+Average for 128 size, crossover:95 avg: 39.3
+Average for 256 size, crossover:95 avg: 129.8
+Average for 512 size, crossover:95 avg: 861.6
+Average for 1024 size, crossover:95 avg: 6001.4
+CROSSOVER 95: time in millis 1758
+Average for 128 size, crossover:100 avg: 17.9
+Average for 256 size, crossover:100 avg: 176.3
+Average for 512 size, crossover:100 avg: 852.9
+Average for 1024 size, crossover:100 avg: 6242.8
+CROSSOVER 100: time in millis 1822
+Average for 128 size, crossover:105 avg: 29.9
+Average for 256 size, crossover:105 avg: 112.9
+Average for 512 size, crossover:105 avg: 895.9
+Average for 1024 size, crossover:105 avg: 5819.9
+CROSSOVER 105: time in millis 1714
+Average for 128 size, crossover:110 avg: 19.4
+Average for 256 size, crossover:110 avg: 99.6
+Average for 512 size, crossover:110 avg: 879.8
+Average for 1024 size, crossover:110 avg: 5937.2
+CROSSOVER 110: time in millis 1734
+Average for 128 size, crossover:115 avg: 13.0
+Average for 256 size, crossover:115 avg: 117.6
+Average for 512 size, crossover:115 avg: 888.1
+Average for 1024 size, crossover:115 avg: 5892.3
+CROSSOVER 115: time in millis 1727
+Average for 128 size, crossover:120 avg: 18.4
+Average for 256 size, crossover:120 avg: 101.4
+Average for 512 size, crossover:120 avg: 880.1
+Average for 1024 size, crossover:120 avg: 5788.9
+CROSSOVER 120: time in millis 1697
+Average for 128 size, crossover:125 avg: 36.8
+Average for 256 size, crossover:125 avg: 163.0
+Average for 512 size, crossover:125 avg: 928.0
+Average for 1024 size, crossover:125 avg: 5711.8
+CROSSOVER 125: time in millis 1709
+Average for 128 size, crossover:130 avg: 18.5
+Average for 256 size, crossover:130 avg: 112.0
+Average for 512 size, crossover:130 avg: 988.6
+Average for 1024 size, crossover:130 avg: 6607.4
+CROSSOVER 130: time in millis 1931
+Average for 128 size, crossover:135 avg: 18.3
+Average for 256 size, crossover:135 avg: 189.6
+Average for 512 size, crossover:135 avg: 989.5
+Average for 1024 size, crossover:135 avg: 6681.0
+CROSSOVER 135: time in millis 1969
+Average for 128 size, crossover:140 avg: 18.4
+Average for 256 size, crossover:140 avg: 190.2
+Average for 512 size, crossover:140 avg: 978.1
+Average for 1024 size, crossover:140 avg: 9419.6
+CROSSOVER 140: time in millis 2651
+Average for 128 size, crossover:145 avg: 30.5
+Average for 256 size, crossover:145 avg: 228.2
+Average for 512 size, crossover:145 avg: 1539.3
+Average for 1024 size, crossover:145 avg: 10244.2
+CROSSOVER 145: time in millis 3010
+Average for 128 size, crossover:150 avg: 15.5
+Average for 256 size, crossover:150 avg: 117.5
+Average for 512 size, crossover:150 avg: 938.0
+Average for 1024 size, crossover:150 avg: 6507.4
+CROSSOVER 150: time in millis 1894
+Average for 128 size, crossover:155 avg: 19.8
+Average for 256 size, crossover:155 avg: 178.9
+Average for 512 size, crossover:155 avg: 889.5
+Average for 1024 size, crossover:155 avg: 6470.5
+CROSSOVER 155: time in millis 1889
+Average for 128 size, crossover:160 avg: 28.9
+Average for 256 size, crossover:160 avg: 111.7
+Average for 512 size, crossover:160 avg: 1029.9
+Average for 1024 size, crossover:160 avg: 6625.9
+CROSSOVER 160: time in millis 1949
+Average for 128 size, crossover:165 avg: 31.6
+Average for 256 size, crossover:165 avg: 112.6
+Average for 512 size, crossover:165 avg: 968.8
+Average for 1024 size, crossover:165 avg: 6745.6
+CROSSOVER 165: time in millis 1964
+Average for 128 size, crossover:170 avg: 49.1
+Average for 256 size, crossover:170 avg: 133.0
+Average for 512 size, crossover:170 avg: 997.0
+Average for 1024 size, crossover:170 avg: 6890.1
+CROSSOVER 170: time in millis 2017
+Average for 128 size, crossover:175 avg: 20.2
+Average for 256 size, crossover:175 avg: 116.7
+Average for 512 size, crossover:175 avg: 999.5
+Average for 1024 size, crossover:175 avg: 6833.2
+CROSSOVER 175: time in millis 1992
+Average for 128 size, crossover:180 avg: 17.5
+Average for 256 size, crossover:180 avg: 147.3
+Average for 512 size, crossover:180 avg: 989.5
+Average for 1024 size, crossover:180 avg: 6709.4
+CROSSOVER 180: time in millis 1965
+Average for 128 size, crossover:185 avg: 31.4
+Average for 256 size, crossover:185 avg: 187.4
+Average for 512 size, crossover:185 avg: 989.6
+Average for 1024 size, crossover:185 avg: 6580.5
+CROSSOVER 185: time in millis 1947
+Average for 128 size, crossover:190 avg: 40.0
+Average for 256 size, crossover:190 avg: 150.9
+Average for 512 size, crossover:190 avg: 1049.5
+Average for 1024 size, crossover:190 avg: 6896.6
+CROSSOVER 190: time in millis 2034
+Average for 128 size, crossover:195 avg: 31.1
+Average for 256 size, crossover:195 avg: 196.3
+Average for 512 size, crossover:195 avg: 1025.1
+Average for 1024 size, crossover:195 avg: 6752.1
+CROSSOVER 195: time in millis 2001
